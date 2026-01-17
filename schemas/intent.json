@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "intent.json",
+  "title": "ICEP Intent Declaration",
+  "type": "object",
+  "required": [
+    "kind",
+    "intent_id",
+    "agent",
+    "base_state",
+    "summary",
+    "scope",
+    "created_at"
+  ],
+  "properties": {
+    "kind": { "const": "intent" },
+    "intent_id": { "$ref": "common.json#/$defs/id" },
+    "agent": { "$ref": "common.json#/$defs/actor" },
+    "base_state": { "$ref": "common.json#/$defs/world_state_ref" },
+    "change_set": { "$ref": "common.json#/$defs/artifact_ref" },
+    "summary": { "type": "string", "minLength": 1, "maxLength": 512 },
+    "description": { "type": "string", "maxLength": 4096 },
+    "scope": { "$ref": "common.json#/$defs/scope" },
+    "expected_properties": {
+      "type": "array",
+      "items": { "type": "string", "maxLength": 256 },
+      "uniqueItems": true
+    },
+    "constraints": {
+      "type": "array",
+      "items": { "$ref": "common.json#/$defs/id" },
+      "uniqueItems": true
+    },
+    "risk_tags": {
+      "type": "array",
+      "items": { "type": "string", "maxLength": 64 },
+      "uniqueItems": true
+    },
+    "expires_at": { "$ref": "common.json#/$defs/timestamp" },
+    "labels": { "$ref": "common.json#/$defs/labels" },
+    "created_at": { "$ref": "common.json#/$defs/timestamp" }
+  },
+  "additionalProperties": false
+}

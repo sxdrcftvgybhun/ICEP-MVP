@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "constraint.json",
+  "title": "ICEP Constraint",
+  "type": "object",
+  "required": [
+    "kind",
+    "constraint_id",
+    "name",
+    "scope",
+    "severity",
+    "logic",
+    "created_at"
+  ],
+  "properties": {
+    "kind": { "const": "constraint" },
+    "constraint_id": { "$ref": "common.json#/$defs/id" },
+    "name": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "description": { "type": "string", "maxLength": 2048 },
+    "scope": { "$ref": "common.json#/$defs/scope" },
+    "severity": {
+      "type": "string",
+      "enum": ["must", "should", "may"]
+    },
+    "priority": { "type": "integer", "minimum": 0, "maximum": 1000 },
+    "logic": {
+      "type": "object",
+      "required": ["language", "expression"],
+      "properties": {
+        "language": { "type": "string", "maxLength": 64 },
+        "expression": { "type": "string", "maxLength": 8192 },
+        "version": { "type": "string", "maxLength": 64 }
+      },
+      "additionalProperties": false
+    },
+    "evidence_requirements": {
+      "type": "array",
+      "items": { "$ref": "common.json#/$defs/evidence_requirement" }
+    },
+    "owner": { "$ref": "common.json#/$defs/actor" },
+    "labels": { "$ref": "common.json#/$defs/labels" },
+    "created_at": { "$ref": "common.json#/$defs/timestamp" }
+  },
+  "additionalProperties": false
+}
