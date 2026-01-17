@@ -1,0 +1,24 @@
+{
+  "kind": "world_state",
+  "state_id": "S-2025-0001",
+  "intent_id": "I-2025-0001",
+  "base_state": {
+    "type": "git",
+    "ref": "b7c1f5a2"
+  },
+  "change_set": {
+    "uri": "https://example.com/artifacts/patches/I-2025-0001.patch",
+    "media_type": "text/x-diff",
+    "digest": { "algo": "sha256", "hash": "d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2" }
+  },
+  "state_ref": {
+    "type": "git",
+    "ref": "c4d9a1f0"
+  },
+  "producer": {
+    "actor_id": "simulator-1",
+    "actor_type": "system",
+    "display_name": "Simulation Fabric"
+  },
+  "created_at": "2025-01-15T12:45:00Z"
+}

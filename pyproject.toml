@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "icep-mvp"
+version = "0.1.0"
+description = "ICEP reference tooling"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [
+  { name = "pkusnail", email = "seahkweehwatony@gmail.com" }
+]
+dependencies = [
+  "jsonschema>=4.18.0",
+  "referencing>=0.28.4"
+]
+
+[project.scripts]
+icep = "icep_mvp.cli:main"
+
+[tool.setuptools]
+packages = ["icep_mvp"]
+
+[tool.setuptools.package-data]
+icep_mvp = ["schemas/*.json"]
